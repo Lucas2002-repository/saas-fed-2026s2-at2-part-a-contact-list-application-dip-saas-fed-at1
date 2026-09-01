@@ -26,26 +26,30 @@ final class DatabaseSeeder extends Seeder
         |--------------------------------------------------------------------------
         */
 
+        $user1 = (string) Str::ulid();
+        $user2 = (string) Str::ulid();
+        $user3 = (string) Str::ulid();
+
         DB::table('users')->insert([
             [
                 'id' => (string) Str::ulid(),
-                'name' => 'John Carter',
-                'email' => 'john@example.com',
+                'name' => $user3,
+                'email' => 'edwin@example.com',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => (string) Str::ulid(),
-                'name' => 'Sarah Wilson',
-                'email' => 'sarah@example.com',
+                'name' => $user2,
+                'email' => 'nonka@example.com',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => (string) Str::ulid(),
-                'name' => 'Michael Brown',
+                'name' => $user3,
                 'email' => 'michael@example.com',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
@@ -113,7 +117,7 @@ final class DatabaseSeeder extends Seeder
         DB::table('topics')->insert([
             [
                 'id' => 1,
-                'user_id' => $johnId,
+                'user_id' => $user1,
                 'subject' => 'Laravel Questions',
                 'status' => 'open',
                 'created_at' => now(),
@@ -121,7 +125,7 @@ final class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'user_id' => $sarahId,
+                'user_id' => $user2,
                 'subject' => 'MongoDB Help',
                 'status' => 'open',
                 'created_at' => now(),
@@ -129,7 +133,7 @@ final class DatabaseSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'user_id' => $michaelId,
+                'user_id' => $user3,
                 'subject' => 'API Development',
                 'status' => 'closed',
                 'created_at' => now(),
@@ -146,7 +150,7 @@ final class DatabaseSeeder extends Seeder
         DB::table('messages')->insert([
             [
                 'topic_id' => 1,
-                'user_id' => $johnId,
+                'user_id' => $user1,
                 'message' => 'How do I create a Laravel seeder using ULIDs?',
                 'read_at' => now(),
                 'created_at' => now(),
@@ -154,7 +158,7 @@ final class DatabaseSeeder extends Seeder
             ],
             [
                 'topic_id' => 2,
-                'user_id' => $sarahId,
+                'user_id' => $user2,
                 'message' => 'How do I connect Laravel to MongoDB Atlas?',
                 'read_at' => null,
                 'created_at' => now(),
@@ -162,7 +166,7 @@ final class DatabaseSeeder extends Seeder
             ],
             [
                 'topic_id' => 3,
-                'user_id' => $michaelId,
+                'user_id' => $user3,
                 'message' => 'What is the best way to structure API resources?',
                 'read_at' => null,
                 'created_at' => now(),
