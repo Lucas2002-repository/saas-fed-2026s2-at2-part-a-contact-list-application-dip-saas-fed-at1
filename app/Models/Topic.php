@@ -7,11 +7,16 @@ use Database\Factories\TopicFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 /** @use HasFactory<TopicFactory> */
 class Topic extends Model
 {
     /** @use HasFactory<TopicFactory> */
-    use HasFactory;
+    use HasFactory, HasUlids;
+
+    public $incrementing = false;
+
+    protected $keyType = 'string';
 
     protected $fillable = [
         'name',
