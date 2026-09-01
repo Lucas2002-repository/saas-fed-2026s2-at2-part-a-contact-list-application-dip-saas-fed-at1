@@ -101,5 +101,73 @@ final class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ]);
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Topics
+        |--------------------------------------------------------------------------
+        */
+
+        DB::table('topics')->insert([
+            [
+                'id' => 1,
+                'user_id' => $johnId,
+                'subject' => 'Laravel Questions',
+                'status' => 'open',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 2,
+                'user_id' => $sarahId,
+                'subject' => 'MongoDB Help',
+                'status' => 'open',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 3,
+                'user_id' => $michaelId,
+                'subject' => 'API Development',
+                'status' => 'closed',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Messages
+        |--------------------------------------------------------------------------
+        */
+
+        DB::table('messages')->insert([
+            [
+                'topic_id' => 1,
+                'user_id' => $johnId,
+                'message' => 'How do I create a Laravel seeder using ULIDs?',
+                'read_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 2,
+                'user_id' => $sarahId,
+                'message' => 'How do I connect Laravel to MongoDB Atlas?',
+                'read_at' => null,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'topic_id' => 3,
+                'user_id' => $michaelId,
+                'message' => 'What is the best way to structure API resources?',
+                'read_at' => null,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

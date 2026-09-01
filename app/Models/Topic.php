@@ -11,5 +11,10 @@ class Topic extends Model
 {
     /** @use HasFactory<TopicFactory> */
     use HasFactory;
-        //
+
+    protected $fillable = [
+        'name',
+        'description',
+        'available',
+    ];
 }
