@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Database\Seeders\TopicSeeder;
+use Database\Seeders\MessageSeeder;
 
 final class DatabaseSeeder extends Seeder
 {
@@ -106,35 +108,39 @@ final class DatabaseSeeder extends Seeder
             ],
         ]);
 
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Topics
-        |--------------------------------------------------------------------------
-        */
-
-
-        DB::table('topics')->insert([
-            [
-                'id' => 1,
-                'name' => 'Laravel',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id' => 2,
-                'name' => 'MongoDB',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id' => 3,
-                'name' => 'API',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+        $this->call([
+            TopicSeeder::class,
+            MessageSeeder::class,
         ]);
+
+
+        // /*
+        // |--------------------------------------------------------------------------
+        // | Topics
+        // |--------------------------------------------------------------------------
+        // */
+
+
+        // DB::table('topics')->insert([
+        //     [
+        //         'id' => 1,
+        //         'name' => 'Laravel',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        //     [
+        //         'id' => 2,
+        //         'name' => 'MongoDB',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        //     [
+        //         'id' => 3,
+        //         'name' => 'API',
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        // ]);
 
         /*
         |--------------------------------------------------------------------------
